@@ -1,0 +1,10 @@
+@import 'primeicons/primeicons.css';
+
+@import 'tailwindcss';
+
+@theme {
+  --color-light-green: #949f67;
+  --color-dileao-green: #626b40;
+  --color-dark-green: #2c3527;
+  --color-dileao-brown: #804829;
+}
