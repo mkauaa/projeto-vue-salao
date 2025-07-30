@@ -1,5 +1,5 @@
 <script setup>
-import diegoImage from '@/assets/images/fotoequipe.jpg'
+import teamImage from '@/assets/images/fotoequipe.jpg'
 </script>
 
 <template>
@@ -9,7 +9,7 @@ import diegoImage from '@/assets/images/fotoequipe.jpg'
     >
       <div class="md:w-1/3 mb-8 md:mb-0 md:mr-20 flex justify-center">
         <img
-          :src="diegoImage"
+          :src="teamImage"
           alt="Diego Leão - Especialista em Cachos"
           class="w-100 h-100 blob-shape object-cover transform transition-transform duration-300 hover:scale-105 border-8 border-light-green"
           loading="lazy"
@@ -34,7 +34,7 @@ import diegoImage from '@/assets/images/fotoequipe.jpg'
         </p>
         <router-link
           to="/equipe"
-          class="inline-block bg-dileao-green hover:bg-light-green text-white px-8 py-3 rounded-full text-lg font-semibold  transition duration-300 transform hover:scale-105"
+          class="inline-block bg-dileao-green hover:bg-light-green text-white px-8 py-3 rounded-full text-lg font-semibold transition duration-300 transform hover:scale-105"
           aria-label="Conheça nossa equipe"
         >
           Conheça a Equipe
