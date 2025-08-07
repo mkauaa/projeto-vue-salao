@@ -1,5 +1,5 @@
 <script setup>
-import heroBackgroundImage from '@/assets/images/bg-img-2.jpg'
+import heroBackgroundImage from '@/assets/images/bg-img-2.webp'
 import diLogo from '@/assets/images/diLogo.png'
 </script>
 
