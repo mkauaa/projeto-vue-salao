@@ -1,7 +1,7 @@
 <script setup>
-import haircutImage from '@/assets/images/haircutImage.jpg'
-import hairTreatmentImage from '@/assets/images/hairTreatmentImage2.jpg'
-import hairColoringImage from '@/assets/images/hairColoringImage.jpg'
+import haircutImage from '@/assets/images/haircutImage.webp'
+import hairTreatmentImage from '@/assets/images/hairTreatmentImage.webp'
+import hairColoringImage from '@/assets/images/hairColoringImage.webp'
 
 const services = [
   {

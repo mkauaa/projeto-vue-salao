@@ -10,12 +10,12 @@ import diLogo from '@/assets/images/diLogo.png'
   >
     <div class="absolute inset-0 bg-black opacity-70"></div>
 
-    <div class="relative z-10 text-white container mx-auto flex flex-col md:flex-row items-center justify-center md:justify-around">
+    <div class="relative z-10 text-white container mx-auto flex flex-col md:flex-row items-center justify-center md:justify-center">
       <div class="mb-8 md:mb-0 md:mr-8">
         <img
           :src="diLogo"
           alt="Logo Di Leão"
-          class="w-80 h-80 md:w-100 md:h-100 object-cover transform transition-transform duration-300 hover:scale-105"
+          class="w-80 h-80 md:w-[400px] md:h-[400px] object-contain transform transition-transform duration-300 hover:scale-105"
           loading="lazy"
         />
       </div>
