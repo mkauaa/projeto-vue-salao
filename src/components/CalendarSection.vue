@@ -26,7 +26,8 @@ const isPrevMonthDisabled = computed(() => {
 
 const isNextMonthDisabled = computed(() => {
   const currentDisplayedDate = new Date(props.currentYear, props.currentMonth, 1);
-  const futureDateLimit = new Date(props.initialYear, props.initialMonth + 2, 1);
+  const futureDateLimit = new Date(props.initialYear, props.initialMonth + 1, 1);
+  futureDateLimit.setMonth(futureDateLimit.getMonth() + 1);
   return currentDisplayedDate >= futureDateLimit;
 });
 
@@ -35,6 +36,13 @@ const displayedMonthDays = computed(() => {
   const firstDayOfMonth = new Date(props.currentYear, props.currentMonth, 1);
   const lastDayOfMonth = new Date(props.currentYear, props.currentMonth + 1, 0);
   const numDays = lastDayOfMonth.getDate();
+
+  // Normalize selectedDate to midnight if it exists
+  let selectedDateMidnight = null;
+  if (props.selectedDate) {
+    selectedDateMidnight = new Date(props.selectedDate);
+    selectedDateMidnight.setHours(0, 0, 0, 0);
+  }
 
   for (let i = 0; i < firstDayOfMonth.getDay(); i++) {
     days.push({ day: null, isCurrentMonth: false });
@@ -52,7 +60,7 @@ const displayedMonthDays = computed(() => {
       date: date,
       isCurrentMonth: true,
       isToday: date.getTime() === todayMidnight.getTime(),
-      isSelected: props.selectedDate ? date.getTime() === props.selectedDate.getTime() : false,
+      isSelected: selectedDateMidnight ? date.getTime() === selectedDateMidnight.getTime() : false,
       isPast: date < todayMidnight,
       isWorkingDay: isWorkingDay
     });
@@ -84,9 +92,12 @@ const nextMonth = () => {
   emit('update:month', { month: newMonth, year: newYear });
 };
 
+const isDaySelectable = (dayData) => {
+  return dayData.day && !dayData.isPast && dayData.isWorkingDay && dayData.isCurrentMonth;
+};
+
 const selectDay = (dayData) => {
-  const isSelectable = dayData.day && !dayData.isPast && dayData.isWorkingDay;
-  if (isSelectable) {
+  if (isDaySelectable(dayData)) {
     emit('date-selected', dayData.date);
   }
 };
@@ -118,15 +129,14 @@ const selectDay = (dayData) => {
       <div v-for="day in DAYS_OF_WEEK" :key="day" class="font-bold text-center text-dileao-green">
         {{ day }}
       </div>
-
       <div
-        v-for="(dayData, index) in displayedMonthDays"
-        :key="`current-${index}`"
+        v-for="(dayData, idx) in displayedMonthDays"
+        :key="idx"
         :class="{
-          'opacity-40 cursor-not-allowed': !dayData.isCurrentMonth || dayData.isPast || !dayData.isWorkingDay,
+          'opacity-40 cursor-not-allowed': !isDaySelectable(dayData),
           'bg-[#a3a96e] text-white font-semibold': dayData.isSelected,
-          'hover:bg-[#c0c77c]': dayData.isCurrentMonth && !dayData.isPast && dayData.isWorkingDay && !dayData.isSelected,
-          'cursor-pointer': dayData.isCurrentMonth && !dayData.isPast && dayData.isWorkingDay,
+          'hover:bg-[#c0c77c]': isDaySelectable(dayData) && !dayData.isSelected,
+          'cursor-pointer': isDaySelectable(dayData),
           'border-2 border-[#6e3a1e]': dayData.isToday && !dayData.isSelected && dayData.isWorkingDay
         }"
         class="p-2 rounded-md text-center"

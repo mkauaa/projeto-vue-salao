@@ -1,6 +1,8 @@
 <script setup>
 import instaLogo from '@/assets/images/instagramLogo.png'
 import logoNameWhite from '@/assets/images/diLogoName.png'
+
+const currentYear = new Date().getFullYear()
 </script>
 
 <template>
@@ -21,17 +23,17 @@ import logoNameWhite from '@/assets/images/diLogoName.png'
             aria-label="Instagram Casa DiLeão"
             class="hover:opacity-75 transition-opacity duration-300"
           >
-            <img :src="instaLogo" alt="Instagram" class="h-6 w-6" />
+            <img :src="instaLogo" alt="Instagram" class="h-8 w-/8" />
           </a>
-          <a
+            <a
             href="https://wa.me/5579999999999"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="WhatsApp Casa DiLeão"
-            class="hover:opacity-75 transition-opacity duration-300"
-          >
-            <i class="pi pi-whatsapp h-6 w-6"></i>
-          </a>
+            class="hover:opacity-75 transition-opacity duration-300 flex items-center"
+            >
+            <i class="pi pi-whatsapp text-2xl"></i>
+            </a>
         </div>
       </div>
 
@@ -50,13 +52,6 @@ import logoNameWhite from '@/assets/images/diLogoName.png'
               to="/equipe"
               class="text-gray-400 hover:text-white transition-colors duration-300"
               >Equipe</router-link
-            >
-          </li>
-          <li class="mb-2">
-            <router-link
-              to="/galeria"
-              class="text-gray-400 hover:text-white transition-colors duration-300"
-              >Galeria</router-link
             >
           </li>
           <li class="mb-2">
@@ -90,7 +85,7 @@ import logoNameWhite from '@/assets/images/diLogoName.png'
     </div>
 
     <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-      <p>&copy; {{ new Date().getFullYear() }} Casa DiLeão. Todos os direitos reservados.</p>
+      <p>&copy; {{ currentYear }} Casa DiLeão. Todos os direitos reservados.</p>
     </div>
   </footer>
 </template>

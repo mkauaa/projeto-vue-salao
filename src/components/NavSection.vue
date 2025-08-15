@@ -9,7 +9,6 @@ const isMenuOpen = ref(false)
 const menuItems = [
   { title: 'Serviços', to: '/servicos' },
   { title: 'Equipe', to: '/equipe' },
-  { title: 'Galeria', to: '/galeria' },
   { title: 'Contato', to: '/contato' },
 ]
 </script>
@@ -31,7 +30,7 @@ const menuItems = [
         <button
           @click="isMenuOpen = !isMenuOpen"
           class="text-white focus:outline-none"
-          :aria-expanded="isMenuOpen.toString()"
+          :aria-expanded="isMenuOpen"
           aria-controls="mobile-menu"
           aria-label="Toggle menu"
         >
@@ -41,14 +40,16 @@ const menuItems = [
       </div>
 
       <div
-        :class="{ hidden: !isMenuOpen, flex: isMenuOpen }"
+        :class="[
+          { hidden: !isMenuOpen, flex: isMenuOpen },
+          'md:flex flex-col md:flex-row absolute md:static top-full left-0 w-full md:w-auto bg-[#626b40] md:bg-none p-4 md:p-0 z-40 items-center justify-center md:justify-end'
+        ]"
         id="mobile-menu"
-        class="md:flex flex-col md:flex-row absolute md:static top-full left-0 w-full md:w-auto bg-[#626b40] md:bg-none p-4 md:p-0 z-40 items-center justify-center md:justify-end"
       >
         <ul
           class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 w-full md:w-auto items-center"
         >
-          <li v-for="(item, index) in menuItems" :key="index">
+          <li v-for="item in menuItems" :key="item.to">
             <router-link
               @click="isMenuOpen = false"
               :to="item.to"
@@ -84,5 +85,4 @@ const menuItems = [
   </header>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

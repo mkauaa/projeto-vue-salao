@@ -3,8 +3,11 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-light-green: #949f67;
-  --color-dileao-green: #626b40;
-  --color-dark-green: #2c3527;
+  --color-lighter-green: #b5c78d;
+  --color-light-green: #949F67;
+  --color-dileao-green: #626C40;
+  --color-dark-green: #2C3527;
+  --color-darker-green: #2a3124;
   --color-dileao-brown: #804829;
+  --color-whatsapp-green: #25d366;
 }

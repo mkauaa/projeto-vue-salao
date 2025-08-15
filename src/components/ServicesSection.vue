@@ -32,8 +32,8 @@ const services = [
       <h2 class="text-5xl font-extrabold text-white mb-12">Nossos Serviços</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
         <div
-          v-for="(service, index) in services"
-          :key="index"
+          v-for="service in services"
+          :key="service.title"
           class="card-overlay rounded-lg shadow-lg p-6 md:p-8 transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
           :style="{
             backgroundImage: `url(${service.image})`,
@@ -44,7 +44,7 @@ const services = [
           <h3 class="text-xl md:text-2xl font-bold text-gray-50 mb-4 text-shadow-lg relative z-10">
             {{ service.title }}
           </h3>
-          <p class="text-base text-[#dedede] font-regular mb-6 relative z-10">
+          <p class="text-base text-[#dedede] font-normal mb-6 relative z-10">
             {{ service.description }}
           </p>
           <router-link
@@ -53,7 +53,7 @@ const services = [
             :aria-label="`Saiba mais sobre ${service.title}`"
           >
             Confira
-            <i class="pi pi-chevron-right text-white ml-2" style="font-size: 0.75rem"></i>
+            <i class="pi pi-chevron-right text-white ml-2 icon-small"></i>
           </router-link>
         </div>
       </div>
@@ -88,5 +88,8 @@ const services = [
 .card-overlay a {
   position: relative;
   z-index: 10;
+}
+.icon-small {
+  font-size: 0.75rem;
 }
 </style>

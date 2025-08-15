@@ -2,8 +2,8 @@
 import { computed } from 'vue';
 
 const props = defineProps({
-  selectedDate: Date,
-  selectedTime: String,
+  selectedDate: { type: Date },
+  selectedTime: { type: String },
 });
 
 const emit = defineEmits(['time-selected']);
@@ -36,11 +36,13 @@ const selectTime = (time) => {
         v-for="(time, index) in timesForSelectedDay"
         :key="index"
         @click="selectTime(time)"
-        :class="{
-          'bg-light-green text-white hover:bg-dileao-green': selectedTime !== time,
-          'bg-dileao-brown text-white': selectedTime === time
-        }"
-        class="px-4 py-2 rounded-full font-semibold transition-colors duration-200"
+        :class="[
+          {
+            'bg-light-green text-white hover:bg-dileao-green': selectedTime !== time,
+            'bg-dileao-brown text-white': selectedTime === time
+          },
+          'px-4 py-2 rounded-full font-semibold transition-colors duration-200'
+        ]"
       >
         {{ time }}
       </button>

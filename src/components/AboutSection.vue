@@ -1,5 +1,5 @@
 <script setup>
-import teamImage from '@/assets/images/fotoequipe.jpg'
+import teamImage from '../assets/images/fotoequipe.jpg'
 </script>
 
 <template>
@@ -11,14 +11,14 @@ import teamImage from '@/assets/images/fotoequipe.jpg'
         <img
           :src="teamImage"
           alt="Diego Leão - Especialista em Cachos"
-          class="w-100 h-100 blob-shape object-cover transform transition-transform duration-300 hover:scale-105 border-8 border-light-green"
+          class="w-full h-full blob-shape object-cover transform transition-transform duration-300 hover:scale-105 border-8 border-light-green"
           loading="lazy"
         />
       </div>
 
       <div class="md:w-2/3 max-w-2xl">
         <h2 class="text-5xl font-extrabold text-light-green mb-6">Sobre Nós</h2>
-        <p class="text-lg leading-relaxed font-regular text-gray-100 text-justify mb-4">
+        <p class="text-lg leading-relaxed font-normal text-gray-100 text-justify mb-4">
           Nós pensamos a <strong>Casa Di Leão</strong> com o propósito de criar um espaço onde o
           <strong>autocuidado</strong> vai muito além dos fios. Abrimos as portas da nossa casa para
           ir além do cabelo, unindo pessoas e casando propósitos em um ambiente que abraça a
