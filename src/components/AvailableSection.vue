@@ -28,7 +28,7 @@ const selectTime = (time) => {
 </script>
 
 <template>
-  <div v-if="selectedDate" id="available-times" class="mt-12 bg-[#faece3] p-8 rounded-lg shadow-xl max-w-xl mx-auto text-gray-800">
+  <div v-if="selectedDate" id="available-times" class="mt-12 bg-orange-100 p-8 rounded-lg shadow-xl max-w-xl mx-auto text-gray-800">
     <h3 class="text-3xl font-bold mb-6 text-[#626b40]">Horários para {{ selectedDate.toLocaleDateString('pt-BR', { weekday: 'long', day: '2-digit', month: 'long' }) }}</h3>
 
     <div v-if="timesForSelectedDay.length > 0" class="grid grid-cols-2 sm:grid-cols-3 gap-4">

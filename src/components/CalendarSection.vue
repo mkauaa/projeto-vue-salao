@@ -109,7 +109,7 @@ const selectDay = (dayData) => {
       <button
         @click="prevMonth"
         :disabled="isPrevMonthDisabled"
-        class="bg-[#626b40] text-white px-4 py-2 rounded-full hover:bg-[#a3a96e] disabled:opacity-50 disabled:cursor-not-allowed transition duration-300"
+        class="bg-dileao-green text-white px-4 py-2 rounded-full hover:bg-light-green disabled:opacity-50 disabled:cursor-not-allowed transition duration-300"
       >
         <i class="pi pi-chevron-left"></i>
       </button>

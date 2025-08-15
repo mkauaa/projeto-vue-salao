@@ -42,7 +42,7 @@ const menuItems = [
       <div
         :class="[
           { hidden: !isMenuOpen, flex: isMenuOpen },
-          'md:flex flex-col md:flex-row absolute md:static top-full left-0 w-full md:w-auto bg-[#626b40] md:bg-none p-4 md:p-0 z-40 items-center justify-center md:justify-end'
+          'md:flex flex-col md:flex-row absolute md:static top-full left-0 w-full md:w-auto bg-dileao-green md:bg-none p-4 md:p-0 z-40 items-center justify-center md:justify-end'
         ]"
         id="mobile-menu"
       >
